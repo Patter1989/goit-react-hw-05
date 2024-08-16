@@ -1,0 +1,10 @@
+.pic {
+  width: 375px;
+  height: 275px;
+  
+}
+.imgWrapper {
+  /* width: 210px;
+  height: 160px; */
+  object-fit: contain;
+}

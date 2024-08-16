@@ -1,0 +1,34 @@
+.header{
+  position: fixed;
+  top: 0;
+  background-color: rgb(72, 72, 248);
+  width: 100vw;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.form{
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.input{
+  padding-left: 25px;
+  font-size: 14px;
+}
+
+.btn{ 
+  position: absolute;
+  top: 15%;
+  left: 0%;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
