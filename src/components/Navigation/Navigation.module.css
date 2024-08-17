@@ -1,0 +1,21 @@
+.nav{
+  display: flex;
+  gap: 12px;
+}
+
+.NavLink{
+  display: inline-block;
+  padding: 20px;
+  font-size: 18px;
+  border: 1px solid black;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: transparent;
+  color: inherit;
+  transition: all 0.3s;
+}
+
+.linkActive {
+  background-color: black;
+  color: aliceblue;
+}
