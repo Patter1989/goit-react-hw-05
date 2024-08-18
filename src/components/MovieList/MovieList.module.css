@@ -1,0 +1,36 @@
+.list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.item {
+  background-color: rgb(119, 118, 118);
+  padding: 10px; 
+  border-radius: 8px; 
+  max-width: 250px; 
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%; 
+}
+
+.link {
+  color: rgb(247, 99, 0);
+  text-decoration: none;
+  text-align: center;
+  font-weight: 800;
+  overflow-wrap: break-word; 
+  word-wrap: break-word; 
+  hyphens: auto; 
+}
+
+.img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

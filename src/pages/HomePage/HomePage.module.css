@@ -1,0 +1,11 @@
+.HomePageWrapper {
+  width: 100vw;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  color: rgb(184, 106, 4);
+}
