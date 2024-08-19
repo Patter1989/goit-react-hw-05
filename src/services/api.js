@@ -33,6 +33,7 @@ export const requestMovieInfoById = async (topRatedMovieId,) => {
 			Authorization:
 				"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyYTMzNDE0ZGEyNjVkMjJhYWI3MTJhYTAxYzBlNTQzMCIsIm5iZiI6MTcyMzg5MDU3Mi40MDIyOTQsInN1YiI6IjY2YzA3NjY2MGUzNTg4NGM1YmMzMGZlYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EktLaRzBXkZXRM2Q1-NVrvbaahGa8rydUET0yngQ2gg",
 		},
+		
 	};
 
 	const response = await axios.get(url, options);

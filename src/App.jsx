@@ -6,7 +6,6 @@ import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
 import MovieCast from "./components/MovieCast/MovieCast";
 import MovieReview from "./components/MovieReviews/MovieReview";
 import { Toaster } from "react-hot-toast";
-// import Loader from "./components/Loader/Loader";
 
 
 

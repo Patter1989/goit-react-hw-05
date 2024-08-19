@@ -6,11 +6,12 @@ import css from "./MovieDetailsPage.module.css"
 
 
 const defaultImg =
-	"<https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster>";
+	"https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
 const MovieDetailsPage = () => {
   const params = useParams();
 	const [movieInfo, setMovieInfo] = useState([]);
-useEffect(() => {
+
+	useEffect(() => {
 	async function fetchMovieInfo() {
 		try {
 			const response = await requestMovieInfoById(params.topRatedMovieId);

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import css from "./MovieList.module.css"
 
 const defaultImg =
-	"<https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster>";
+	"https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
 const MovieList = ({ moviesList }) => {
 	return (
 		<ul className={css.list}>

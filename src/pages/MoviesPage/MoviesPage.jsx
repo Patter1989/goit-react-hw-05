@@ -3,10 +3,15 @@ import toast from "react-hot-toast";
 import css from "./MoviesPage.module.css"
 import { requestMovieByQuery } from "../../services/api";
 import MovieList from "../../components/MovieList/MovieList";
+import { useSearchParams } from "react-router-dom";
 
 const MoviesPage = () => {
   const [searchedMovieValue, setSearchedMovieValue] = useState(null);
-  const [movieList, setMovieList] = useState([]);
+	const [movieList, setMovieList] = useState([]);
+		const [searchParams, setSearchParams] = useSearchParams();
+		const query = searchParams.get("query");
+		console.log(query);
+
   const onSubmit = (inputValue) => {
 		setSearchedMovieValue(inputValue);
 	};
