@@ -6,29 +6,28 @@ import MovieList from "../../components/MovieList/MovieList";
 import { useSearchParams } from "react-router-dom";
 
 const MoviesPage = () => {
-  const [searchedMovieValue, setSearchedMovieValue] = useState(null);
 	const [movieList, setMovieList] = useState([]);
 		const [searchParams, setSearchParams] = useSearchParams();
-		const query = searchParams.get("query");
-		console.log(query);
+	const query = searchParams.get("query");
+	
 
   const onSubmit = (inputValue) => {
-		setSearchedMovieValue(inputValue);
+		setSearchParams({ "query": inputValue});
 	};
     const onHandleSubmit = (event) => {
 			event.preventDefault();
-			const inputValue = event.currentTarget.elements.searchedMovieValue.value;
+			const inputValue = event.currentTarget.elements.query.value;
 			inputValue === ""
 				? toast.error("please write something")
 				: onSubmit(inputValue);
   };
   
   useEffect(() => {
-    if (searchedMovieValue === null) return;
+    if (!query) return;
 		async function fetchSearchedMovie() {
       try {
         
-        const response = await requestMovieByQuery(searchedMovieValue);
+        const response = await requestMovieByQuery(query);
         if (response.data.results.length === 0) {
           setMovieList([])
 					toast.error("No matches, please change your request!");
@@ -40,8 +39,8 @@ const MoviesPage = () => {
 			}
 		}
 		fetchSearchedMovie();
-  }, [searchedMovieValue]);
-  console.log(movieList)
+  }, [query]);
+  
 		return (
 			<div className={css.header}>
 				<form
@@ -50,7 +49,7 @@ const MoviesPage = () => {
 				>
 					<input
 						className={css.input}
-						name='searchedMovieValue'
+						name='query'
 						type='text'
 						autoComplete='off'
 						autoFocus

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { requestMovieInfoById } from "../../services/api";
 import css from "./MovieDetailsPage.module.css"
 
@@ -8,9 +8,11 @@ import css from "./MovieDetailsPage.module.css"
 const defaultImg =
 	"https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
 const MovieDetailsPage = () => {
-  const params = useParams();
+	const params = useParams();
 	const [movieInfo, setMovieInfo] = useState([]);
-
+	const location = useLocation()
+	console.log(location)
+	const backLinkRef = useRef(location.state?.from ?? "/movies")
 	useEffect(() => {
 	async function fetchMovieInfo() {
 		try {
@@ -33,7 +35,7 @@ const MovieDetailsPage = () => {
 
 	return (
 		<div>
-			<button type='button'>Go back</button>
+			<Link to={backLinkRef.current}>Go back</Link>
 			<div>
 				<img
 					className={css.image}

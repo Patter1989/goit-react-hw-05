@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import css from "./MovieCast.module.css"
 
+const defaultImg =
+	"https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster";
+
 const MovieCast = () => {
   const params = useParams()
   const [movieCasts, setMovieCasts] = useState([]);
@@ -30,7 +33,12 @@ const MovieCast = () => {
 				return (
 					<li key={movieCast.id}>
 						<img
-							src={`https://image.tmdb.org/t/p/w500${movieCast.profile_path}`}
+							src={
+								movieCast.profile_path
+									? `https://image.tmdb.org/t/p/w500${movieCast.profile_path}`
+									: defaultImg
+							}
+							width={250}
 							alt={`${movieCast.name} photo`}
 						/>
 						<p>{movieCast.name}</p>
