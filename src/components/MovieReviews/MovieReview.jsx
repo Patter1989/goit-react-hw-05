@@ -20,7 +20,7 @@ const MovieReview = () => {
 	}, [params.topRatedMovieId]);
       console.log(movieReviews)
 	return (
-		<div>
+		<div className={css.wrapper}>
 			<div className={css.noFoundText}>
 				{Array.isArray(movieReviews) && movieReviews.length === 0 && (
 					<p className={css.noFoundText}>
