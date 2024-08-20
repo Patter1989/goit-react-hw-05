@@ -11,8 +11,8 @@ const MovieDetailsPage = () => {
 	const params = useParams();
 	const [movieInfo, setMovieInfo] = useState([]);
 	const location = useLocation()
-	console.log(location)
 	const backLinkRef = useRef(location.state?.from ?? "/movies")
+
 	useEffect(() => {
 	async function fetchMovieInfo() {
 		try {
@@ -28,15 +28,16 @@ const MovieDetailsPage = () => {
   const genresList = Array.isArray(movieInfo.genres)
 		? movieInfo.genres.map((genre) => genre.name).join(" ")
 		: "No genres available";
-  
-  // console.log(movieInfo)
-  
-  
 
 	return (
-		<div>
-			<Link to={backLinkRef.current}>Go back</Link>
-			<div>
+		<div className={css.wrapper}>
+			<Link
+				className={css.backButtonLink}
+				to={backLinkRef.current}
+			>
+				Go back
+			</Link>
+			<div className={css.infoWrapper}>
 				<img
 					className={css.image}
 					src={
@@ -47,29 +48,44 @@ const MovieDetailsPage = () => {
 					width={250}
 					alt={`poster of ${movieInfo.title}`}
 				/>
-				<div>
-					<h2>
+				<div className={css.infoTextWrapper}>
+					<h2 className={css.movieHeader}>
 						{movieInfo.title} ({movieInfo.release_date?.slice(0, 4)})
 					</h2>
-					<p>User Score: {(movieInfo.vote_average * 10).toFixed(1)}%</p>
-					<h3>Overview</h3>
-					<p>{movieInfo.overview}</p>
-					<h4>Genres</h4>
-					<p>{genresList}</p>
+					<p className={css.text}>
+						User Score: {(movieInfo.vote_average * 10).toFixed(1)}%
+					</p>
+					<h3 className={css.infoHeader}>Overview</h3>
+					<p className={css.text}>{movieInfo.overview}</p>
+					<h3 className={css.infoHeader}>Genres</h3>
+					<p className={css.text}>{genresList}</p>
 				</div>
 			</div>
 			<div>
-				<p>Additional information</p>
-				<ul>
-					<li>
-						<Link to='cast'>Cast</Link>
+				<p className={css.additionalInfoText}>Additional information</p>
+				<ul className={css.linksList}>
+					<li className={css.linksItem}>
+						<Link
+							className={css.link}
+							to='cast'
+						>
+							Cast
+						</Link>
 					</li>
-					<li>
-						<Link to='reviews'>Reviews</Link>
+					<li className={css.linksItem}>
+						<Link
+							className={css.link}
+							to='reviews'
+						>
+							Reviews
+						</Link>
 					</li>
 				</ul>
+				<div className={css.outletWrapper}>
+					<Outlet />
+				</div>
 			</div>
-			<div>
+			<div className={css.outletWrapper}>
 				<Outlet />
 			</div>
 		</div>

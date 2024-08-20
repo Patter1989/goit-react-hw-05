@@ -1,17 +1,20 @@
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage/HomePage";
-import MoviesPage from "./pages/MoviesPage/MoviesPage";
-import Navigation from "./components/Navigation/Navigation";
-import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
-import MovieCast from "./components/MovieCast/MovieCast";
-import MovieReview from "./components/MovieReviews/MovieReview";
 import { Toaster } from "react-hot-toast";
+import { lazy, Suspense } from "react";
+import { ProgressBar } from "react-loader-spinner";
 
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
+const MovieDetailsPage = lazy(() =>
+	import("./pages/MovieDetailsPage/MovieDetailsPage")
+);
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
+const Navigation = lazy(() => import("./components/Navigation/Navigation"));
+const MovieCast = lazy(() => import("./components/MovieCast/MovieCast"));
+const MovieReview = lazy(() => import("./components/MovieReviews/MovieReview"));
 
 
 const App = () => {
-
-
 	
 	return (
 		<div>
@@ -22,7 +25,7 @@ const App = () => {
 				<Toaster
 					position='top-center'
 					containerStyle={{
-						top: 100,
+						top: 40,
 						left: 20,
 						bottom: 20,
 						right: 20,
@@ -34,29 +37,35 @@ const App = () => {
 						},
 					}}
 				/>
-				<Routes>
-					<Route
-						path='/'
-						element={<HomePage />}
-					/>
-					<Route
-						path='/movies'
-						element={<MoviesPage />}
-					/>
-					<Route
-						path='/movies/:topRatedMovieId'
-						element={<MovieDetailsPage />}
-					>
+				<Suspense fallback= {<ProgressBar/>}>
+					<Routes>
 						<Route
-							path='cast'
-							element={<MovieCast />}
+							path='/'
+							element={<HomePage />}
 						/>
 						<Route
-							path='reviews'
-							element={<MovieReview />}
+							path='/movies'
+							element={<MoviesPage />}
 						/>
-					</Route>
-				</Routes>
+						<Route
+							path='/movies/:topRatedMovieId'
+							element={<MovieDetailsPage />}
+						>
+							<Route
+								path='cast'
+								element={<MovieCast />}
+							/>
+							<Route
+								path='reviews'
+								element={<MovieReview />}
+							/>
+						</Route>
+						<Route
+							path='*'
+							element={<NotFoundPage />}
+						/>
+					</Routes>
+				</Suspense>
 			</main>
 		</div>
 	);

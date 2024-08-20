@@ -42,7 +42,7 @@ const MoviesPage = () => {
   }, [query]);
   
 		return (
-			<div className={css.header}>
+			<div className={css.wrapper}>
 				<form
 					onSubmit={onHandleSubmit}
 					className={css.form}
@@ -52,7 +52,7 @@ const MoviesPage = () => {
 						name='query'
 						type='text'
 						autoComplete='off'
-						autoFocus
+						// autoFocus
 					/>
 					<button
 						type='submit'

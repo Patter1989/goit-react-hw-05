@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.text {
+  color: rgb(247, 99, 0);
+  font-size: 22px;
+
+}
+
+.link {
+  color: rgb(247, 99, 0);
+  background-color: rgb(119, 118, 118);
+  text-decoration: none;
+  text-align: center;
+  font-weight: 800;
+  overflow-wrap: break-word; 
+  word-wrap: break-word; 
+  hyphens: auto;
+  padding: 15px;
+  border-radius: 8px; 
+}

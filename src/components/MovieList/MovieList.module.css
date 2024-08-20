@@ -18,7 +18,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  max-width: 100%; 
+  /* max-width: 100%;  */
 }
 
 .link {
@@ -35,4 +35,5 @@
   width: 100%;
   height: auto;
   object-fit: cover;
+  
 }

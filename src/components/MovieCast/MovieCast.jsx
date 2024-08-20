@@ -22,31 +22,40 @@ const MovieCast = () => {
 		fetchMovieInfo();
 	}, [params.topRatedMovieId]);
 
-  return (
-		<ul>
+	return (
+		<div className={css.wrapper}>
 			<div>
 				{Array.isArray(movieCasts) && movieCasts.length === 0 && (
-					<p>We don`t have any casts for this movie</p>
+					<p className={css.noFoundText}>
+						We don`t have any casts for this movie
+					</p>
 				)}
 			</div>
-			{movieCasts.map((movieCast) => {
-				return (
-					<li key={movieCast.id}>
-						<img
-							src={
-								movieCast.profile_path
-									? `https://image.tmdb.org/t/p/w500${movieCast.profile_path}`
-									: defaultImg
-							}
-							width={250}
-							alt={`${movieCast.name} photo`}
-						/>
-						<p>{movieCast.name}</p>
-						<p>{`Character: ${movieCast.character}`}</p>
-					</li>
-				);
-			})}
-		</ul>
+			<ul className={css.castList}>
+				{movieCasts.map((movieCast) => {
+					return (
+						<li
+							className={css.castItem}
+							key={movieCast.id}
+						>
+							<img
+								src={
+									movieCast.profile_path
+										? `https://image.tmdb.org/t/p/w500${movieCast.profile_path}`
+										: defaultImg
+								}
+								width={250}
+								alt={`${movieCast.name} photo`}
+							/>
+							<p className={css.castName}>{movieCast.name}</p>
+							<p
+								className={css.characterName}
+							>{`Character: ${movieCast.character}`}</p>
+						</li>
+					);
+				})}
+			</ul>
+		</div>
 	);
 }
 

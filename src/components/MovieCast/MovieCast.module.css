@@ -1,0 +1,58 @@
+
+.castList {
+  box-sizing: border-box;
+  max-width: 1170px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  list-style: none;
+  margin: 0;
+  background-color: #282828;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.castItem {
+  /* flex: 1 1 200px; */
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: #3a3a3a;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.castItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.castItem img {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+
+.castName {
+  font-size: 1.1rem;
+  color: rgb(247, 99, 0);
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.characterName {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  text-align: center;
+}
+
+.noFoundText {
+  color: #ff8c00;
+  text-align: center;
+  font-size: 1.3rem;
+  padding: 20px;
+}

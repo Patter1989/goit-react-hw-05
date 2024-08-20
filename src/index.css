@@ -2,13 +2,27 @@ body {
   background-color: #1e2336;
   margin: 0;
   display: flex;
+  /* max-width: 1440px; */
   /* place-items: center; */
   /* min-width: 320px;
   min-height: 100vh; */
+}
+main{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 :root {
   font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  
+}
+
+#root{
+  width: 100%;
+  
 }

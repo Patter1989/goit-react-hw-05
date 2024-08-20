@@ -1,0 +1,55 @@
+.wrapper {
+  
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  font-size: 18px;
+  width: 300px;
+  height: 40px;
+  background-color: rgb(118, 118, 119);
+  color: rgb(247, 99, 0);
+  box-sizing: border-box;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input:hover,
+.input:focus {
+  border: 1px solid rgb(247, 99, 0);
+  box-shadow: 0 0 8px rgba(247, 99, 0, 0.5);
+  outline: none;
+}
+
+.btn {
+  background-color: rgb(247, 99, 0);
+  color: rgb(83, 83, 83);
+  font-weight: 800;
+  height: 40px;
+  padding: 0 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background-color: rgb(247, 99, 0);
+  color: rgb(56, 55, 55);
+
+}
