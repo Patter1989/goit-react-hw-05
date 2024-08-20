@@ -1,4 +1,5 @@
 
+
 .castList {
   box-sizing: border-box;
   max-width: 1020px;
@@ -56,3 +57,7 @@
   font-size: 1.3rem;
   padding: 20px;
 }
+
+	.link {
+    text-decoration: none;
+  }

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { requestMovieCast} from "../../services/api";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -38,19 +38,26 @@ const MovieCast = () => {
 							className={css.castItem}
 							key={movieCast.id}
 						>
-							<img
-								src={
-									movieCast.profile_path
-										? `https://image.tmdb.org/t/p/w500${movieCast.profile_path}`
-										: defaultImg
-								}
-								width={250}
-								alt={`${movieCast.name} photo`}
-							/>
-							<p className={css.castName}>{movieCast.name}</p>
-							<p
-								className={css.characterName}
-							>{`Character: ${movieCast.character}`}</p>
+							<a
+								className={css.link}
+								href={`https://en.wikipedia.org/wiki/${movieCast.name}`}
+								target='_blank'
+								rel='noopener noreferrer'
+							>
+								<img
+									src={
+										movieCast.profile_path
+											? `https://image.tmdb.org/t/p/w500${movieCast.profile_path}`
+											: defaultImg
+									}
+									width={250}
+									alt={`${movieCast.name} photo`}
+								/>
+								<p className={css.castName}>{movieCast.name}</p>
+								<p
+									className={css.characterName}
+								>{`Character: ${movieCast.character}`}</p>
+							</a>
 						</li>
 					);
 				})}
