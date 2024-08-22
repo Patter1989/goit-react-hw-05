@@ -85,9 +85,6 @@ const MovieDetailsPage = () => {
 					<Outlet />
 				</div>
 			</div>
-			<div className={css.outletWrapper}>
-				<Outlet />
-			</div>
 		</div>
 	);
 };
